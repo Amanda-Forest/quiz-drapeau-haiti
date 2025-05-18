@@ -58,7 +58,6 @@ body {
   transition: background 0.2s;
 }
 .share-btn.whatsapp { background: #25D366; }
-.share-btn.instagram { background: #E1306C; }
 .share-btn:hover { opacity: 0.85; }
 
   /* --- Compatibilite mobile et tablettes --- */
