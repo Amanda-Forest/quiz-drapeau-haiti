@@ -54,18 +54,18 @@ const allQuestions = [
   let score = 0;
   
   // melanger aleatoirement les questions
-  function qcm(listeQuestion) {
-    return listeQuestion.sort(() => Math.random() - 0.5);
+  function qcm(listQuestion) {
+    return listQuestion.sort(() => Math.random() - 0.5);
   }
   
   function startQuiz() {
     selectedQuestions = qcm([...allQuestions]).slice(0, 10);
     currentQuestion = 0;
     score = 0;
-    afficherQuestion();
+    afficheQuestion();
   }
   
-  function afficherQuestion() {
+  function afficheQuestion() {
     const q = selectedQuestions[currentQuestion];
     document.getElementById("question").textContent = `Question ${currentQuestion + 1} : ${q.question}`;
     const answersDiv = document.getElementById("answers");
@@ -79,19 +79,19 @@ const allQuestions = [
     });
   }
   
-    function showResult() {
+  function showResult() {
   const resultDiv = document.getElementById("result");
   resultDiv.innerHTML = `Votre score : <strong>${score} / ${selectedQuestions.length}</strong>`;
 
   // Message à partager
-  const shareText = `J'ai obtenu ${score}/${selectedQuestions.length} au quiz sur la Fête 🎉 du Drapeau Haïtien !\nTeste-toi aussi ici : https://amanda-forest.github.io/quiz-drapeau-haiti/`;
+  const shareText = `J'ai obtenu ${score}/${selectedQuestions.length} au quiz sur la Fête 🎉 du Drapeau Haïtien !\nTeste-toi aussi ici :  https://amanda-forest.github.io/quiz-drapeau-haiti/`;
 
   // Bouton Copier le score
   const copyBtn = document.createElement("button");
   copyBtn.textContent = "Copier le score";
   copyBtn.onclick = function() {
     navigator.clipboard.writeText(shareText);
-    copyBtn.textContent = "copié le resultat ! Colle-le dans ta Story Instagram.";
+    copyBtn.textContent = "Score copié ! Colle-le dans ta Story Instagram.";
     setTimeout(() => (copyBtn.textContent = "Copier le score"), 1500);
   };
   copyBtn.className = "share-btn";
@@ -103,18 +103,18 @@ const allQuestions = [
   waStoryBtn.className = "share-btn whatsapp";
   waStoryBtn.style.marginLeft = "10px";
 
-   // Ajout des boutons au résultat
+    // Ajout des boutons au résultat
   resultDiv.appendChild(document.createElement("br"));
   resultDiv.appendChild(copyBtn);
   resultDiv.appendChild(waStoryBtn);
-}
+ }
 
   function checkAnswer(selected) {
     const correct = selectedQuestions[currentQuestion].answer;
     if (selected === correct) score++;
     currentQuestion++;
     if (currentQuestion < selectedQuestions.length) {
-      afficherQuestion();
+      afficheQuestion();
     } else {
       
       document.getElementById("question").textContent = "Résultat final 🥴";
@@ -124,4 +124,3 @@ const allQuestions = [
   }
   
   startQuiz();
-  
