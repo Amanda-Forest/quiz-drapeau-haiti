@@ -54,24 +54,24 @@ const allQuestions = [
   let score = 0;
   
   // melanger aleatoirement les questions
-  function shuffle(array) {
-    return array.sort(() => Math.random() - 0.5);
+  function qcm(listeQuestion) {
+    return listeQuestion.sort(() => Math.random() - 0.5);
   }
   
   function startQuiz() {
     selectedQuestions = shuffle([...allQuestions]).slice(0, 10);
     currentQuestion = 0;
     score = 0;
-    showQuestion();
+    afficherQuestion();
   }
   
-  function showQuestion() {
+  function afficherQuestion() {
     const q = selectedQuestions[currentQuestion];
     document.getElementById("question").textContent = `Question ${currentQuestion + 1} : ${q.question}`;
     const answersDiv = document.getElementById("answers");
     answersDiv.innerHTML = "";
   
-    shuffle(q.options).forEach(opt => {
+    qcm(q.options).forEach(opt => {
       const btn = document.createElement("button");
       btn.textContent = opt;
       btn.onclick = () => checkAnswer(opt);
@@ -124,7 +124,7 @@ const allQuestions = [
     if (selected === correct) score++;
     currentQuestion++;
     if (currentQuestion < selectedQuestions.length) {
-      showQuestion();
+      afficherQuestion();
     } else {
       
       document.getElementById("question").textContent = "Résultat final 🥴";
