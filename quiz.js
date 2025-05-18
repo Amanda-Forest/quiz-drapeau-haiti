@@ -92,7 +92,7 @@ const allQuestions = [
   copyBtn.onclick = function() {
     navigator.clipboard.writeText(shareText);
     copyBtn.textContent = "Score copié ! Colle-le dans ta Story Instagram.";
-    setTimeout(() => (copyBtn.textContent = "Copier le score"), 1500);
+    setTimeout(() => (copyBtn.textContent = "Copier le score! Colle-le dans ta Story Instagram."), 1500);
   };
   copyBtn.className = "share-btn";
 
