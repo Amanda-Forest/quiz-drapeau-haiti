@@ -79,6 +79,46 @@ const allQuestions = [
     });
   }
   
+    function showResult() {
+  const resultDiv = document.getElementById("result");
+  resultDiv.innerHTML = `Votre score : <strong>${score} / ${selectedQuestions.length}</strong>`;
+
+  // Message à partager
+  const shareText = `J'ai obtenu ${score}/${selectedQuestions.length} au quiz sur la Fête 🎉 du Drapeau Haïtien !\nTeste-toi aussi ici : ${window.location.origin + window.location.pathname.replace('quiz.html', 'index.html')}`;
+
+  // Bouton Copier le score
+  const copyBtn = document.createElement("button");
+  copyBtn.textContent = "Copier le score";
+  copyBtn.onclick = function() {
+    navigator.clipboard.writeText(shareText);
+    copyBtn.textContent = "Score copié !";
+    setTimeout(() => (copyBtn.textContent = "Copier le score"), 1500);
+  };
+  copyBtn.className = "share-btn";
+
+  // Bouton WhatsApp Story (ouvre WhatsApp, l'utilisateur colle le texte)
+  const waStoryBtn = document.createElement("a");
+  waStoryBtn.href = "whatsapp://send?text=" + encodeURIComponent(shareText);
+  waStoryBtn.textContent = "Partager en Story WhatsApp";
+  waStoryBtn.className = "share-btn whatsapp";
+  waStoryBtn.style.marginLeft = "10px";
+
+  // Bouton Instagram Story (ouvre Instagram, l'utilisateur colle le texte)
+  const instaStoryBtn = document.createElement("a");
+  instaStoryBtn.href = "https://www.instagram.com/";
+  instaStoryBtn.target = "_blank";
+  instaStoryBtn.rel = "noopener";
+  instaStoryBtn.textContent = "Partager en Story Instagram";
+  instaStoryBtn.className = "share-btn instagram";
+  instaStoryBtn.style.marginLeft = "10px";
+
+  // Ajout des boutons au résultat
+  resultDiv.appendChild(document.createElement("br"));
+  resultDiv.appendChild(copyBtn);
+  resultDiv.appendChild(waStoryBtn);
+  resultDiv.appendChild(instaStoryBtn);
+}
+
   function checkAnswer(selected) {
     const correct = selectedQuestions[currentQuestion].answer;
     if (selected === correct) score++;
@@ -86,9 +126,10 @@ const allQuestions = [
     if (currentQuestion < selectedQuestions.length) {
       showQuestion();
     } else {
-      document.getElementById("question").textContent = "Résultat final";
+      
+      document.getElementById("question").textContent = "Résultat final 🥴";
       document.getElementById("answers").innerHTML = "";
-      document.getElementById("result").textContent = `Vous avez obtenu ${score}/10 🎉`;
+      showResult();
     }
   }
   
