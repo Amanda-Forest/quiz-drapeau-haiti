@@ -84,7 +84,7 @@ const allQuestions = [
   resultDiv.innerHTML = `Votre score : <strong>${score} / ${selectedQuestions.length}</strong>`;
 
   // Message à partager
-  const shareText = `J'ai obtenu ${score}/${selectedQuestions.length} au quiz sur la Fête 🎉 du Drapeau Haïtien !\nTeste-toi aussi ici : ${window.location.origin + window.location.pathname.replace('quiz.html', 'index.html')}`;
+  const shareText = `J'ai obtenu ${score}/${selectedQuestions.length} au quiz sur la Fête 🎉 du Drapeau Haïtien !\nTeste-toi aussi ici : https://amanda-forest.github.io/quiz-drapeau-haiti/`;
 
   // Bouton Copier le score
   const copyBtn = document.createElement("button");
