@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Quiz sur la Fête du Drapeau Haïtien 😁
 
 Ce projet est un mini quiz interactif sur la Fête du Drapeau Haïtien, réalisé en HTML, CSS et JavaScript. Il permet de tester ses connaissances sur l’histoire et les symboles du drapeau haïtien. 
@@ -39,3 +40,7 @@ Projet réalisé par Amanda sur IG: mandaintech pour découvrir et célébrer la
 ---
 
 **Bon quiz ! 👌**
+=======
+# quiz-drapeau-haiti
+Ce projet est un mini quiz interactif sur la Fête du Drapeau Haïtien, réalisé en HTML, CSS et JavaScript. Il permet de tester ses connaissances sur l’histoire et les symboles du drapeau haïtien.
+>>>>>>> 946e1f1d59d1139b499e103f0ea6c40281acd506
