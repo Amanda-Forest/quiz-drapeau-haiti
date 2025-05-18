@@ -91,7 +91,7 @@ const allQuestions = [
   copyBtn.textContent = "Copier le score";
   copyBtn.onclick = function() {
     navigator.clipboard.writeText(shareText);
-    copyBtn.textContent = "Score copié !";
+    copyBtn.textContent = "copié le resultat ! Colle-le dans ta Story Instagram.";
     setTimeout(() => (copyBtn.textContent = "Copier le score"), 1500);
   };
   copyBtn.className = "share-btn";
@@ -103,20 +103,10 @@ const allQuestions = [
   waStoryBtn.className = "share-btn whatsapp";
   waStoryBtn.style.marginLeft = "10px";
 
-  // Bouton Instagram Story (ouvre Instagram, l'utilisateur colle le texte)
-  const instaStoryBtn = document.createElement("a");
-  instaStoryBtn.href = "https://www.instagram.com/";
-  instaStoryBtn.target = "_blank";
-  instaStoryBtn.rel = "noopener";
-  instaStoryBtn.textContent = "Partager en Story Instagram";
-  instaStoryBtn.className = "share-btn instagram";
-  instaStoryBtn.style.marginLeft = "10px";
-
-  // Ajout des boutons au résultat
+   // Ajout des boutons au résultat
   resultDiv.appendChild(document.createElement("br"));
   resultDiv.appendChild(copyBtn);
   resultDiv.appendChild(waStoryBtn);
-  resultDiv.appendChild(instaStoryBtn);
 }
 
   function checkAnswer(selected) {
