@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    .background-image {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 0;
+      object-position: center;
+      object-fit: cover;
+      pointer-events: none;
+    }
+    .background-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 1;
+      background: rgba(30, 30, 30, 0.3); /* Couche blanche transparente */
+      pointer-events: none;
+    }
+    .center-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+     
+    }
+    .center-content h1 {
+      font-size: 2.5em;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .center-content h2{
+      color:#dbff3a;
+      font-size: 1;
+    }
+    .start-btn {
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 1.2em;
+      background: #cc2200;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .start-btn:hover {
+      background: #003d99;
+    }
+    @media (max-width: 600px) {
+      .center-content {
+        height: auto;
+        min-height: 100vh;
+        padding: 10px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      .start-btn {
+        width: 100%;
+        font-size: 1em;
+        padding: 12px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="drapo2.jpg" alt="Background" class="background-image" id="bg-img">
+  <div class="background-overlay"></div>
+  <div class="center-content">
+    <h1>Bienvenue <br> 🎉 Dans le quiz du Drapeau Haïtien</h1>
+    <h2> Découvre si tu es un vrai connaisseur du drapeau haïtien !😎</h2>
+    <button class="start-btn" id="start-quiz">Commencer le quiz</button>
+  </div>
+
+  <script>
+    // Redirection vers le quiz
+    document.getElementById('start-quiz').addEventListener('click', function() {
+      window.location.href = 'quiz.html';
+    });
+
+    // Mouse tracking animation pour l'image de fond
+    const bgImg = document.getElementById('bg-img');
+    document.addEventListener('mousemove', function(e) {
+      const x = (e.clientX / window.innerWidth - 0.5) * 40; 
+      const y = (e.clientY / window.innerHeight - 0.5) * 20; 
+      bgImg.style.transform = `scale(1.05) translate(${x}px, ${y}px)`;
+    });
+    document.addEventListener('mouseleave', function() {
+      bgImg.style.transform = 'scale(1)';
+    });
+  </script>
+</body>
+</html>
