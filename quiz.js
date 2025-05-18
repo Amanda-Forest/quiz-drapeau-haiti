@@ -59,7 +59,7 @@ const allQuestions = [
   }
   
   function startQuiz() {
-    selectedQuestions = shuffle([...allQuestions]).slice(0, 10);
+    selectedQuestions = qcm([...allQuestions]).slice(0, 10);
     currentQuestion = 0;
     score = 0;
     afficherQuestion();
